@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b70ctw1qefdtc"]
+
+[ext_resource type="Script" uid="uid://b2t7bv56rg115" path="res://scripts/mob.gd" id="1_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://b5qclrj5iy0q" path="res://assets/blood_monster/blood_walk_01.png" id="bw_1"]
+[ext_resource type="Texture2D" uid="uid://cqssmlwoo4poa" path="res://assets/blood_monster/blood_walk_02.png" id="bw_2"]
+[ext_resource type="Texture2D" uid="uid://cwjlpmjs15mlx" path="res://assets/blood_monster/blood_walk_03.png" id="bw_3"]
+[ext_resource type="Texture2D" uid="uid://c6xr5sbwsm05" path="res://assets/blood_monster/blood_walk_04.png" id="bw_4"]
+[ext_resource type="Texture2D" uid="uid://dw5drrq40qo1i" path="res://assets/blood_monster/blood_walk_05.png" id="bw_5"]
+[ext_resource type="Texture2D" uid="uid://br2om4e8047j" path="res://assets/blood_monster/blood_walk_06.png" id="bw_6"]
+[ext_resource type="Texture2D" uid="uid://bl1nh2byvedid" path="res://assets/blood_monster/blood_walk_07.png" id="bw_7"]
+[ext_resource type="Texture2D" uid="uid://dynmsxy8xirap" path="res://assets/blood_monster/blood_walk_08.png" id="bw_8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfba5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("bw_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("bw_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("bw_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("bw_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("bw_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("bw_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("bw_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("bw_8")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dy6sc"]
+radius = 55.0
+height = 120.0
+
+[node name="mob" type="RigidBody2D" unique_id=196393035]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_1qmh0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1615314654]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_jfba5")
+animation = &"walk"
+speed_scale = 0.9
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2106851895]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1973011081]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_dy6sc")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

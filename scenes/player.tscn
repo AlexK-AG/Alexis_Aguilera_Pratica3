@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dydcujfjuwp4f"]
+
+[ext_resource type="Script" uid="uid://dp053to2i6bh6" path="res://scripts/player.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://dt2mwelybiqr8" path="res://assets/demon/demon_walk_01.png" id="dw_1"]
+[ext_resource type="Texture2D" uid="uid://jiu4q80fkxso" path="res://assets/demon/demon_walk_02.png" id="dw_2"]
+[ext_resource type="Texture2D" uid="uid://d2vi1doyvvgld" path="res://assets/demon/demon_walk_03.png" id="dw_3"]
+[ext_resource type="Texture2D" uid="uid://b4dluoo2ygb7l" path="res://assets/demon/demon_walk_04.png" id="dw_4"]
+[ext_resource type="Texture2D" uid="uid://yixfue8dm3kb" path="res://assets/demon/demon_walk_05.png" id="dw_5"]
+[ext_resource type="Texture2D" uid="uid://b617680iruww0" path="res://assets/demon/demon_walk_06.png" id="dw_6"]
+[ext_resource type="Texture2D" uid="uid://b8f7y4prx30n4" path="res://assets/demon/demon_walk_07.png" id="dw_7"]
+[ext_resource type="Texture2D" uid="uid://dpbvo40qd7x0c" path="res://assets/demon/demon_walk_08.png" id="dw_8"]
+[ext_resource type="Texture2D" path="res://assets/shield/shield.png" id="shield_tex"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("dw_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_8")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("dw_1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("dw_8")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrivr"]
+radius = 27.0
+height = 68.0
+
+[node name="Player" type="Area2D" unique_id=1080179132]
+script = ExtResource("1_sweqy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=14590033]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xrivr")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1437572627]
+shape = SubResource("CapsuleShape2D_xrivr")
+
+[node name="ShieldSprite" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+texture = ExtResource("shield_tex")
+
+[node name="ShieldTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShieldCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
