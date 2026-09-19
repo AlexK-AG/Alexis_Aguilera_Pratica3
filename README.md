@@ -57,11 +57,15 @@ Alexis_Aguilera_Practica3/
 
 ## ▶️ Ejecutar desde Godot
 
+> Si solo quieres jugar, no necesitas Godot: descarga el ejecutable desde la sección **Releases**.
+
 1. Clonar o descargar este repositorio.
-2. Abrir **Godot 4**.
-3. Importar `project.godot`.
-4. Abrir el proyecto.
-5. Presionar **F6/F5** para ejecutar la escena o el proyecto.
+2. Instalar **Godot 4.7** o superior (el proyecto fue creado con esa versión).
+3. En el gestor de proyectos, pulsar **Importar** y seleccionar `project.godot`.
+4. Abrir el proyecto. La primera vez Godot importa los recursos, así que puede tardar un poco.
+5. Presionar **F5** para ejecutar el juego. La escena principal es `scenes/main.tscn`.
+
+> **F6** ejecuta solo la escena que tengas abierta (por ejemplo `hud.tscn` o `player.tscn`), útil para probar piezas sueltas. Para jugar el juego completo usa **F5**.
 
 ## 🎥 Video de gameplay
 
@@ -73,8 +77,6 @@ Para la entrega se grabará un video de **máximo 1 minuto** mostrando:
 4. Incremento de la puntuación.
 5. Activación y funcionamiento del escudo.
 
-**Estado:** pendiente de grabación.
-
 ## 📚 Referencia
 
 Proyecto basado en el tutorial oficial de Godot: **Your first 2D game**.
@@ -83,7 +85,7 @@ https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html
 
 ## 👤 Autores
 
-**Alexis Kaleb Aguilera Correa**
-**Jose Ernesto Luquin Gonzalez**
+**Alexis Kaleb Aguilera Correa.**<br>
+**Jose Ernesto Luquin Gonzalez.**
 
 Práctica 3 — Desarrollo de juego 2D con Godot.
